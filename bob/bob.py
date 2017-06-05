@@ -1,12 +1,11 @@
-# removes whitespaces from the end of the string
-_trim = lambda string: _trim(string[0:-1]) if string[-1] == " " else string
+import re
 
 def hey(what):
-    if what.isspace() or not what:
+    if re.search(r"^\s*$", what):
         return "Fine. Be that way!"
     elif what.isupper():
         return "Whoa, chill out!"
-    elif _trim(what)[-1] == "?":
+    elif re.search(r"\?\s*$", what):
         return "Sure."
     else:
         return "Whatever."
